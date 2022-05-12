@@ -15,7 +15,8 @@ before_install:
   - gcloud config set compute/southamerica-east1-a
   - gcloud container clusters get-credentials multi-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t paesbru/react-test -f ./client/Dockerfile.dev ./cliente 
+  - docker build -t paesbru/react-test -f ./client/Dockerfile.dev ./client
+
 script:
   - docker run -e CI=true paesbru/react-test npm test
 deploy:
